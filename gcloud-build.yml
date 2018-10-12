@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build',
+         '-f',
+         'Dockerfile',
+         '--build-arg=version=${REVISION_ID}',
+         '-t', 'gcr.io/$PROJECT_ID/${_APP}:${REVISION_ID}',
+         '.']
+images:
+  ['gcr.io/$PROJECT_ID/${_APP}:${REVISION_ID}']
